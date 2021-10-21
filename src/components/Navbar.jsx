@@ -1,4 +1,5 @@
 import logo from '../assets/logo.png';
+import CartWidget from './CartWidget';
 
 export default function Navbar() {
   return (
@@ -16,7 +17,9 @@ export default function Navbar() {
             <a className="nav-link text-light" href="/">Categorías</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-light" href="/">Carrito</a>
+            <a className="nav-link text-light" href="/">
+              <CartWidget/>
+            </a>
           </li>
         </ul>
       </div>

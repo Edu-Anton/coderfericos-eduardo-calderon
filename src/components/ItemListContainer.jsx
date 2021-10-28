@@ -15,10 +15,14 @@ export default function ItemListContainer() {
       .finally(() => setLoading(false))
   }, []); 
 
+  const handleClick = (total) => {
+    alert(`Se han comprado ${total} productos`);
+  }
+
   return (
     <div className="container pt-5">
       <ItemList products={products} loading={loading}/>
-      <ItemCount stock={5} initial={1}/>
+      <ItemCount stock={5} initial={1} onAdd={handleClick}/>
     </div>
   )
 }

@@ -27,7 +27,7 @@ export default function ItemCount({stock, initial}) {
   }
 
   return (
-    <div className="col-12 col-md-6 col-lg-4">
+    <div className="col-12 col-md-6 col-lg-4 mt-5">
       <div className="card">
         <div className="card-header d-flex justify-content-between">
           <span>Producto A</span>

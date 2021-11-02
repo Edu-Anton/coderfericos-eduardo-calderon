@@ -1,0 +1,9 @@
+body {
+  color: #666
+}
+
+/* Helpers */
+/* Text */
+.fv-small-caps {
+  font-variant: small-caps;
+}

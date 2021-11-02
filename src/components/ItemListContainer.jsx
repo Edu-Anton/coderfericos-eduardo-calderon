@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {getFetch} from '../services/getFetch';
 import ItemList from "./ItemList";
-import ItemCount from "./ItemCount";
+// import ItemCount from "./ItemCount/Index";
 
 export default function ItemListContainer() {
 
@@ -15,14 +15,14 @@ export default function ItemListContainer() {
       .finally(() => setLoading(false))
   }, []); 
 
-  const handleClick = (total) => {
-    alert(`Se han comprado ${total} productos`);
-  }
+  // const handleClick = (total) => {
+  //   alert(`Se han comprado ${total} productos`);
+  // }
 
   return (
-    <div className="container pt-5">
+    <div className="container mt-5">
       <ItemList products={products} loading={loading}/>
-      <ItemCount stock={5} initial={1} onAdd={handleClick}/>
+      
     </div>
   )
 }

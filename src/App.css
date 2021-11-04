@@ -3,7 +3,16 @@ body {
 }
 
 /* Helpers */
+
 /* Text */
 .fv-small-caps {
   font-variant: small-caps;
+}
+
+/* Colors */
+.bg-main {
+  background-color: #8fca00;
+}
+.bg-red {
+  background-color: #ff324d;
 }

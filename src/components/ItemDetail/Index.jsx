@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import './ItemDetail.css';
+
 import Breadcrumb from '../Breadcrumb/Index'
 import ItemCount from '../ItemCount/Index'
 
-export default function ItemDetail({product:{id, title, longDescription, price, pictureUrl, category}, onAdd}) {
+export default function ItemDetail({product:{id, title, longDescription, price, pictureUrl, category}}) {
+
+  const [quantityToAdd, setQuantityToAdd] = useState(null);
+
+  const handleClick = (total) => {
+    setQuantityToAdd(total)
+    console.log(`Se han comprado ${total} productos`); 
+  }
 
   return (
     <>
@@ -47,7 +57,16 @@ export default function ItemDetail({product:{id, title, longDescription, price, 
               <span className="text-secondary ms-2 fv-small-caps">Califica el producto</span>
             </p>
             <hr />
-            <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+            {
+              quantityToAdd
+              ? (
+                  <Link to="/cart" className="btn go_to_cart"> 
+                    <i className="bi bi-cart3 me-2"></i>
+                    Ir al carrito
+                  </Link>
+                )
+              : <ItemCount stock={5} initial={1} onAdd={handleClick}/>
+            }       
             <hr />
           </div>
         </div>

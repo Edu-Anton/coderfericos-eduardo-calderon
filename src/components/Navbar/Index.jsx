@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="container">
         <Link to="/" className="text-light text-decoration-none d-flex align-items-center">
           {/* <i class="bi bi-mouse2"></i> */}
-          <i class="bi bi-keyboard fs-1 me-2 text-secondary"></i>
+          <i className="bi bi-keyboard fs-1 me-2 text-secondary"></i>
           <span className="fs-4">Coderféricos</span>
         </Link>
         <ul className="nav">

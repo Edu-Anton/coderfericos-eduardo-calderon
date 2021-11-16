@@ -9,19 +9,19 @@ const CartContextProvider = ({children}) => {
   const [cartList, setCartList] = useState([]);
   const [quantityInCart, setQuantityInCart] = useState(0); 
   
-  const isInCart = (itemId) => {
-    return cartList.some(item => item.id === itemId);
-  }
+  const isInCart = (itemId) => cartList.some(item => item.id === itemId)
+
+  const getTotalAccount = () => cartList.reduce((acum, product) => (acum + product.price*product.quantity), 0);
 
   const addItem = (product, quantity) => {
 
     if ( isInCart(product.id) ) {
       const filteredCartList = cartList.filter(item => item.id !== product.id);
       const cartItem = cartList.find(item => item.id === product.id);
-      quantity = quantity + cartItem.quantity;
+      const newQuantity = quantity + cartItem.quantity;
       setCartList([
         ...filteredCartList,
-        {...product, quantity}
+        {...product, quantity: newQuantity}
       ]);
       console.log('ya existe el producto');
     } else {
@@ -29,22 +29,38 @@ const CartContextProvider = ({children}) => {
         ...cartList,
         {...product, quantity}
       ]);
-      setQuantityInCart(quantityInCart + 1);
-      console.log(`Se han añadido ${quantity} productos ${product.title} al carrito`); 
+      console.log(`Se han añadido ${quantity} productos ${product.title} al carrito`);
     }
+    setQuantityInCart(quantityInCart + quantity);
   }
 
-  const removeItem = itemId => {
-    setCartList(
-      cartList.filter(item => item.id !== itemId)
-    )
-    setQuantityInCart(quantityInCart -1);
-    alert(`el elemento con ID ${itemId} ha sido removido`)
+  const removeItem = (itemId, quantity) => {
+    setCartList(cartList.filter(item => item.id !== itemId))
+    setQuantityInCart(quantityInCart - quantity);
   }
+  // const removeItem = (index, quantity) => {
+  //   const newCartList = [...cartList];
+  //   newCartList.splice(index, 1);
+  //   setCartList(newCartList);
+  // }
 
-  const clear = () =>{
+  const removeItems = () =>{
     setCartList([]);
     setQuantityInCart(0);
+  }
+
+  const addUnit = (oldQuantity, index) => {
+    const newCartList = [...cartList];
+    newCartList[index].quantity = oldQuantity + 1;
+    setCartList(newCartList);
+    setQuantityInCart(quantityInCart +1);
+  }
+
+  const subtractUnit = (oldQuantity, index) => {
+    const newCartList = [...cartList];
+    newCartList[index].quantity = oldQuantity - 1;
+    setCartList(newCartList);
+    setQuantityInCart(quantityInCart -1);
   }
 
   return (
@@ -53,7 +69,11 @@ const CartContextProvider = ({children}) => {
       addItem,
       removeItem,
       quantityInCart,
-      clear
+      getTotalAccount,
+      // getTotalUnits,
+      removeItems,
+      addUnit,
+      subtractUnit
     }}>
       {children}
     </CartContext.Provider>

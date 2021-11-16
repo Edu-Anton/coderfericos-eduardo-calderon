@@ -3,13 +3,24 @@ body {
 }
 
 /* Helpers */
+.cursor-pointer {
+  cursor:pointer;
+}
 
 /* Text */
+.fs-sm-1 {
+  font-size: 0.8rem;
+}
+
 .fv-small-caps {
   font-variant: small-caps;
 }
 
 /* Colors */
+.text-main {
+  color: #8fca00;
+}
+
 .bg-main {
   background-color: #8fca00;
 }

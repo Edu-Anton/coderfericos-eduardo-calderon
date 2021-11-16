@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
 import './ItemDetail.css';
 
 import Breadcrumb from '../Breadcrumb/Index';
@@ -8,14 +9,21 @@ import ItemCount from '../ItemCount/Index';
 export default function ItemDetail({product}) {
 
   const [addToCart, setAddToCart] = useState(false);
+  const [counter, setCounter] = useState(1);
+
+  const {addItem} = useCartContext();
+  const {id, title, longDescription, price, pictureUrl, category} = product;
+  const stock = 5;
 
   const handleQuantity = () => {
     setAddToCart(true);
+    addItem(product,counter)
   }
+
+  const handleAdd = () => ( counter < stock) ? setCounter( counter+1 ) : alert('Se agotaron los productos en stock');
+
+  const handleSubstract = () => (counter > 1 ) ? setCounter( counter-1 ) : alert('No se permite seleccionar menos de un producto');
   
-
-  const {id, title, longDescription, price, pictureUrl, category} = product;
-
   return (
     <>
     <Breadcrumb category={category}/>
@@ -62,13 +70,28 @@ export default function ItemDetail({product}) {
             {
               addToCart
               ? (
-                  <Link to="/cart" className="btn go_to_cart"> 
+                  <Link to="/cart" className="btn go_to_cart py-3 px-4"> 
                     <i className="bi bi-cart3 me-2"></i>
                     Ir al carrito
                   </Link>
                 )
               // : <ItemCount stock={5} initial={1} onAdd={handleClick}/>
-              : <ItemCount stock={5} initial={1} product={product} addToCart={handleQuantity}/>
+              : (
+                  <div className="d-flex align-items-center mt-3">
+                    <ItemCount 
+                      stock={stock} 
+                      quantity={counter} 
+                      handleAdd={handleAdd} 
+                      handleSubstract={handleSubstract}
+                    />
+                    <button 
+                      className="btn counter__on-add-btn ms-3" 
+                      onClick={handleQuantity}
+                    >
+                      Añadir al carrito
+                    </button>
+                  </div>
+                ) 
             }       
             <hr />
           </div>

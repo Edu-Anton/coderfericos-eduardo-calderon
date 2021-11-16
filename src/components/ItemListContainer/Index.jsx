@@ -11,7 +11,6 @@ export default function ItemListContainer() {
   const [title, setTitle] = useState('');
 
   const {categoryId} = useParams();
-  console.log(categoryId);
 
   useEffect(() => {
 

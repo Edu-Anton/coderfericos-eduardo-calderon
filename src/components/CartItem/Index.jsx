@@ -28,7 +28,7 @@ export default function CartItem({product, index}) {
             <div className="h-100 d-flex flex-column justify-content-between">
               <div>
                 <h3 className="fs-6 text-uppercase">{product.title}</h3>
-                <p><span className="fv-small-caps">Código:</span> {product.id}</p>
+                <p><span className="fv-small-caps">Código:</span> {product.id.substring(0,4)}</p>
               </div>
               {/* <span className="text-decoration-underline fs-sm-1" onClick={()=>removeItem(product.id, product.quantity)}>Eliminar</span> */}
               <span className="text-decoration-underline fs-sm-1 cursor-pointer" onClick={()=>removeItem(product.id, product.quantity)}>Eliminar</span>

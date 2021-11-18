@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router';
-import {getFetch} from '../../services/getFetch';
+// import {getFetch} from '../../services/getFetch';
+import { getFirestore } from '../../services/getFirestore';
 import ItemList from "../ItemList/Index";
 // import ItemCount from "./ItemCount/Index";
 
@@ -15,19 +16,24 @@ export default function ItemListContainer() {
   useEffect(() => {
 
     if (categoryId) {
-      getFetch
+      console.log('categoryId',categoryId)
+      const db = getFirestore();
+      const dbQuery = db.collection('products').where('category_id', '==', parseInt(categoryId)).get()
+      dbQuery
       .then(res => {
-        const products = res.filter(item => item.category.id === categoryId);
-        setProducts(products);
-        setTitle(products[0].category.name);
+        const arrayData = res.docs.map(item => ({id:item.id, ...item.data()}))
+        setProducts(arrayData);
+        setTitle(categoryId === 1?'Periféricos':'Almacenamiento')
       })
       .catch(err => console.log(err))
       .finally(() => setLoading(false))
     } else {
-      getFetch
+      const db = getFirestore();
+      const dbQuery = db.collection('products').get()
+      dbQuery
       .then(res => {
-        setProducts(res)
-        setTitle('Catálogo de Productos');
+        const arrayData = res.docs.map(item => ({id:item.id, ...item.data()}))
+        setProducts(arrayData);
       })
       .catch(err => console.log(err))
       .finally(() => setLoading(false))

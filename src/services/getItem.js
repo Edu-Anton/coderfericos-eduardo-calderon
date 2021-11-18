@@ -63,7 +63,7 @@ const products = [
     id:"6", 
     title:"Teclado Apple Magic", 
     description:"Neque porro quisquam est, qui dolorem ipsum quia dolo.",
-    longDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero error quas eaque facilis aspernatur corrupti, ullam vitae esse, rem porro id ipsam similique tempore enim, sequi hic iure perspiciatis excepturi!",
+  longDescription: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero error quas eaque facilis aspernatur corrupti, ullam vitae esse, rem porro id ipsam similique tempore enim, sequi hic iure perspiciatis excepturi!",
     price:"400",
     pictureUrl:"teclado",
     category: {

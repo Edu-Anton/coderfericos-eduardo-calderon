@@ -13,7 +13,7 @@ export default function Item({id, title, description, price, pictureUrl}) {
             <p>{description}</p>
             <div className="d-flex justify-content-between">
               <span className="fw-bold">$ {price}</span>
-              <span className="badge rounded-pill bg-main">Id: {id}</span>
+              <span className="badge rounded-pill bg-main">Id: {id.substring(0,2)}</span>
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ export default function ItemDetail({product}) {
   const [counter, setCounter] = useState(1);
 
   const {addItem} = useCartContext();
-  const {id, title, longDescription, price, pictureUrl, category} = product;
+  const {id, title, longDescription, price, pictureUrl, category_id, category_name} = product;
   const stock = 5;
 
   const handleQuantity = () => {
@@ -26,7 +26,7 @@ export default function ItemDetail({product}) {
   
   return (
     <>
-    <Breadcrumb category={category}/>
+    <Breadcrumb category_id={category_id} category_name={category_name}/>
     <div className="row mt-5">
       <div className="col-6 offset-3 col-md-4 offset-md-0 d-flex align-items-start">
         <div>

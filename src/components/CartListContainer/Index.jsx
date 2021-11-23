@@ -1,12 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext'
+import { getFirestore } from '../../services/getFirestore';
+import firebase from 'firebase';
+import 'firebase/firestore';
 import CartList from '../CartList/Index'
 import './CartListContainer.css';
 
 export default function CartListContainer() {
 
-  const {quantityInCart, getTotalAccount, removeItems} = useCartContext()
+  const {cartList, quantityInCart, getTotalAccount, removeItems} = useCartContext()
+
+  const history = useHistory();
+
+  const postOrder = () => {
+    const order = {};
+    order.date = firebase.firestore.Timestamp.fromDate(new Date());
+    order.buyer = {name: 'Anton', phone: '987654321', email: 'anton@mail.com'};
+    order.total = getTotalAccount();
+    order.items = cartList.map(cartItem => {
+      const id = cartItem.id;
+      const title = cartItem.title;
+      const price = cartItem.price;
+      const quantity = cartItem.quantity;
+      return {id, title, price, quantity}
+    })
+  // console.log(order)
+
+    const db = getFirestore();
+    const dbQuery = db.collection('orders').add(order)
+    dbQuery
+    .then(res => {
+      removeItems();
+      history.push(`/order-received/${res.id}`)
+    })
+    .catch(err => console.log(err))
+  }
 
   return (
     <div className="container flex-grow-1 mt-5">
@@ -64,8 +93,7 @@ export default function CartListContainer() {
                     <i className="bi bi-info-square me-1"></i>
                     Su pedido llegará en 5 días a partir de la fecha de su compra.
                   </span>
-                  <button className="btn bg-red text-light my-4 w-100 py-3">Terminar mi compra</button>
-                  
+                  <button className="btn bg-red text-light my-4 w-100 py-3" onClick={()=>postOrder()}>Terminar mi compra</button>
                   <div className="d-flex justify-content-between">
                     <div className="d-flex flex-column align-items-center c-benefits__content">
                       <i className="bi bi-lock fs-2 c-benefits__icon"></i>

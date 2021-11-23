@@ -7,6 +7,8 @@ import Navbar from './components/Navbar/Index';
 import Footer from './components/Footer/Index';
 import CartListContainer from './components/CartListContainer/Index';
 import CartContextProvider from './context/CartContext';
+import OrderReceived from './components/OrderReceived/Index';
+import Checkout from './components/Checkout/Index';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route exact path="/categories/:categoryId" component={ItemListContainer}/>
             <Route exact path="/products/:productId" component={ItemDetailContainer}/>
             <Route exact path="/cart" component={CartListContainer}/>
+            <Route exact path="/checkout" component={Checkout}/>
+            <Route exact path="/order-received/:orderId" component={OrderReceived}/>
           </Switch>
           <Footer/>
         </BrowserRouter>

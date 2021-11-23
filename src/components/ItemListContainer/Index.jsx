@@ -14,10 +14,8 @@ export default function ItemListContainer() {
   const {categoryId} = useParams();
 
   useEffect(() => {
-
+    const db = getFirestore();
     if (categoryId) {
-      console.log('categoryId',categoryId)
-      const db = getFirestore();
       const dbQuery = db.collection('products').where('category_id', '==', parseInt(categoryId)).get()
       dbQuery
       .then(res => {
@@ -28,7 +26,6 @@ export default function ItemListContainer() {
       .catch(err => console.log(err))
       .finally(() => setLoading(false))
     } else {
-      const db = getFirestore();
       const dbQuery = db.collection('products').get()
       dbQuery
       .then(res => {

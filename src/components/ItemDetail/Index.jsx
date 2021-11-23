@@ -26,7 +26,10 @@ export default function ItemDetail({product}) {
   
   return (
     <>
-    <Breadcrumb category_id={category_id} category_name={category_name}/>
+    <Breadcrumb>
+      <li className="breadcrumb-item"><Link to={`/categories/${category_id}`}>{category_name}</Link></li>
+      <li className="breadcrumb-item active" aria-current="page">Producto</li>
+    </Breadcrumb>
     <div className="row mt-5">
       <div className="col-6 offset-3 col-md-4 offset-md-0 d-flex align-items-start">
         <div>

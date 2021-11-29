@@ -6,19 +6,8 @@ export default function ItemList({products, loading}) {
     <div className="row">
       {
         loading 
-          ?  <Loader/>
-          : (
-              products.map(product => (
-                <Item
-                  key={product.id}
-                  id={product.id} 
-                  description={product.description}
-                  pictureUrl={`/thumbnail/${product.pictureUrl}.jpg`}
-                  price={product.price}
-                  title={product.title}
-                />
-              ))
-            )
+          ? <Loader/>
+          : products.map(product => <Item key={product.id} product={product}/>)
       }
     </div>
     

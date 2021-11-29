@@ -1,12 +1,20 @@
 import {Link} from 'react-router-dom'
 
-export default function Item({id, title, description, price, pictureUrl}) {
+export default function Item({product}) {
+  const {
+    id,
+    title,
+    description,
+    price, 
+    pictureUrl
+  } = product
+
   return (
     <div className="col-6 col-lg-4 col-xl-3">
       <Link to={`/products/${id}`} className="text-decoration-none text-secondary">
         <div className="card mt-4 shadow-sm">
           <div className="ratio ratio-4x3">
-            <img src={pictureUrl} className="card-img-top rounded-3 border border-sucess" alt="Imagen de Producto"/>
+            <img src={`/thumbnail/${pictureUrl}.jpg`} className="card-img-top rounded-3 border border-sucess" alt="Imagen de Producto"/>
           </div>
           <div className="card-body">
             <p className="fw-bold text-secondary">{title}</p>

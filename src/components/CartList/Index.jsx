@@ -9,11 +9,8 @@ export default function CartList() {
 
   return (
     <div>
-      
       {
-        cartList.map( (product, index) => (
-          <CartItem key={index} product={product} index={index}/>
-        ))
+        cartList.map( (product, index) => <CartItem key={index} product={product} index={index}/>)
       }
     </div>
   )

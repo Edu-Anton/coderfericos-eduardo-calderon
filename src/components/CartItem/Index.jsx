@@ -1,14 +1,16 @@
 import React from 'react'
 import { useCartContext } from '../../context/CartContext'
+
 import ItemCount from '../ItemCount/Index';
-// import ItemCount from '../ItemCount/Index';
 
 export default function CartItem({product, index}) {
 
-  const {removeItem, addUnit, subtractUnit} = useCartContext();
-  // const stock = 5;
-
-
+  const {
+    removeItem, 
+    addUnit, 
+    subtractUnit
+  } = useCartContext();
+  
   const handleSubtract = () => {
     if (product.quantity > 1 ) {
       subtractUnit(product.quantity, index);

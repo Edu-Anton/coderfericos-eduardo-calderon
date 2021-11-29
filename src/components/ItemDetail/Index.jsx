@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
+
 import { useCartContext } from '../../context/CartContext';
 import './ItemDetail.css';
 
@@ -12,7 +13,15 @@ export default function ItemDetail({product}) {
   const [counter, setCounter] = useState(1);
 
   const {addItem} = useCartContext();
-  const {id, title, longDescription, price, pictureUrl, category_id, category_name} = product;
+  const {
+    category_id, 
+    category_name,
+    id, 
+    longDescription, 
+    pictureUrl, 
+    price, 
+    title 
+  } = product;
   const stock = 5;
 
   const handleQuantity = () => {
@@ -27,7 +36,9 @@ export default function ItemDetail({product}) {
   return (
     <>
     <Breadcrumb>
-      <li className="breadcrumb-item"><Link to={`/categories/${category_id}`}>{category_name}</Link></li>
+      <li className="breadcrumb-item">
+        <Link to={`/categories/${category_id}`}>{category_name}</Link>
+      </li>
       <li className="breadcrumb-item active" aria-current="page">Producto</li>
     </Breadcrumb>
     <div className="row mt-5">

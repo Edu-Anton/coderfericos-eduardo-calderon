@@ -6,7 +6,9 @@ export default function Breadcrumb({children}) {
     <div className="bg-light py-2">
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb mb-0">
-          <li className="breadcrumb-item"><Link to="/">Inicio</Link></li>
+          <li className="breadcrumb-item">
+            <Link to="/">Inicio</Link>
+          </li>
 
           {children}
 

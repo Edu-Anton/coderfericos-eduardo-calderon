@@ -28,10 +28,10 @@ const OrderReceived = () => {
         ? <Loader/>
         : (
             <div className="col-8">
-                <h2 className="fs-3 text-secondary fw-light mb-5 mt-4">¡Gracias! Tu orden ha sido recibida</h2>
+                <h2 className="fs-1 text-secondary fw-light mb-4 mt-4">¡Gracias! Tu orden ha sido recibida</h2>
+                <p className="fw-bold fs-5">Código de Orden: {order.id}</p>
                 <p><b>Cliente:</b> {order.buyer.name}</p>
                 <p><b>Email:</b> {order.buyer.email}</p>
-                <p><b>Código de Orden:</b> {order.id}</p>
                 <p><b>Método de Pago:</b> Tarjeta Visa 4343-xxxx-xxxx-2323</p>
                 {/* <p><b>Fecha de compra:</b> {order.date.toDate()}</p> */}
 
@@ -47,7 +47,7 @@ const OrderReceived = () => {
                   <tbody>
                     {
                     order.items.map((item, index) => (
-                      <tr key="index">
+                      <tr key={index}>
                         <td>{item.title}</td>
                         <td align="center">{item.quantity}</td>
                         <td align="right">$ {item.price}</td>

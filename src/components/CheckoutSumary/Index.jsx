@@ -1,12 +1,13 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 
 const CheckoutSumary = () => {
   
   const {getTotalAccount} = useCartContext()
   
-  const history = useHistory();
+  const location = useLocation();
+  console.log(location)
 
   return (
     <div className="card">
@@ -25,13 +26,28 @@ const CheckoutSumary = () => {
           <span>Precio Total</span>
           <span> $ {getTotalAccount() + 10}</span>
         </div>
-        <span className="fs-sm-1">
+        {/* <span className="fs-sm-1">
           <i className="bi bi-info-square me-1"></i>
           Su pedido llegará en 5 días a partir de la fecha de su compra.
-        </span>
+        </span> */}
         {/* <button className="btn bg-red text-light my-4 w-100 py-3" onClick={()=>postOrder()}>Terminar mi compra</button> */}
+        {
+          location.pathname === '/cart'
+          ? <Link className="btn bg-red text-light my-4 py-3 d-block" to='/checkout'>Confirmar mi compra</Link>
+          : (
+            <>
+              <Link to="/cart">Ver detalle de mi compra</Link>
+              <div className="alert alert-success fs-sm-1 mt-4" role="alert">
+                <i className="bi bi-info-square me-1"></i>
+                Su pedido llegará en 5 días a partir de la fecha de su compra.
+              </div>
+            </>
+          )
+          // : <Link className="btn bg-red text-light my-4 py-3 d-block" to='/cart'>Ver detalle de mi compra2</Link>
+        }
+        {/* <button className="btn bg-red text-light my-4 w-100 py-3">Terminar mi compra</button> */}
         
-        <button className="btn btn-success" onClick={() => history.push('/')}>Ir a </button>
+        
 
         <div className="d-flex justify-content-between">
           <div className="d-flex flex-column align-items-center c-benefits__content">

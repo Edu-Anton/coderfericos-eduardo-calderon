@@ -4,7 +4,8 @@
   background-color: #efefef;
   border: none;
   border-radius: 5px;
-  &:focus-visible {
-    outline: 1px solid #ccc;
-  }
+}
+
+.a-input:focus-visible {
+  outline: 1px solid #ccc;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Nmodal.scss';
+import './Nmodal.css';
 
 const Nmodal = ({handleCloseModal, postOrder}) => {
   return (

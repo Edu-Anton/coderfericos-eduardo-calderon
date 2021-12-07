@@ -1,0 +1,12 @@
+.vmodal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(#000, .5);
+  z-index: 1055;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

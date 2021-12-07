@@ -1,5 +1,5 @@
 import React from 'react'
-import './Input.scss'
+import './Input.css'
 // import PropTypes from 'prop-types'
 
 const Input = ({type, variant, width, ...attr}) => {

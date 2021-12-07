@@ -6,13 +6,17 @@ import firebase from 'firebase';
 import 'firebase/firestore';
 import CheckoutSumary from '../CheckoutSumary/Index';
 import Nmodal from '../Nmodal/Index'
+import Input from '../Atoms/Input/Index';
 
 const Checkout = () => {
-  const [formData, setFormData] = useState({name:'Eduardo Calderón', email: 'ed@gmail.com', phone:'967678555'})
+
+  const [formData, setFormData] = useState({
+    name:'Eduardo Calderón', 
+    email: 'ed@gmail.com', 
+    phone:'967678555'
+  })
   const [openModal, setOpenModal] = useState(false);
-
   const {cartList, getTotalAccount, removeItems} = useCartContext()
-
   const history = useHistory();
 
   const postOrder = () => {
@@ -27,7 +31,6 @@ const Checkout = () => {
       const quantity = cartItem.quantity;
       return {id, title, price, quantity}
     })
-  // console.log(order)
 
     const db = getFirestore();
     const dbQuery = db.collection('orders').add(order)
@@ -37,15 +40,25 @@ const Checkout = () => {
       history.push(`/order-received/${res.id}`)
     })
     .catch(err => console.log(err))
-  }
-  
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
+
+    const itemsToUpdate = db.collection('products').where(
+      firebase.firestore.FieldPath.documentId(), 'in', cartList.map(item => item.id)
+    )
+    const batch = db.batch();
+
+    itemsToUpdate.get()
+    .then(collection => {
+      collection.docs.forEach(docSnapshot => {
+        batch.update(docSnapshot.ref, {
+          stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).quantity
+        })
+      })
+      batch.commit().then(res => {
+        console.log('resultado batch:', res)
+      })
     })
+
   }
-  console.log(formData)
 
   const handleOpenModal = (e) => {
     e.preventDefault();
@@ -66,32 +79,30 @@ const Checkout = () => {
               <div className="d-flex justify-content-between align-items-start">
                 <h2 className="h3 mb-0 fw-light">
                   Registro de Comprador 
-                  {/* <span className="t"> ({quantityInCart} productos)</span> */}
                 </h2>
-                {/* <button className="btn btn-outline-secondary btn-sm" onClick={removeItems}>Limpiar Carrito</button> */}
               </div>
             </div>
           </div>
 
           <div className="card">
             <div className="card-body">
-              <form onChange={handleChange}>
+              <form>
                 <div className="mb-3 row">
                   <label for="inputPassword" className="col-sm-3 col-form-label">Nombre</label>
                   <div className="col-sm-9">
-                    <input type="text" className="form-control" id="inputPassword" name="name" value={formData.name}/>
+                    <Input name="name" value={formData.name} onChange={e => setFormData(e.target.value)}/>
                   </div>
                 </div>
                 <div className="mb-3 row">
                   <label for="inputPassword" className="col-sm-3 col-form-label">Email</label>
                   <div className="col-sm-9">
-                    <input type="email" className="form-control" id="inputPassword" name="email" value={formData.email}/>
+                    <Input name="email" value={formData.email} onChange={e => setFormData(e.target.value)}/>
                   </div>
                 </div>
                 <div className="mb-3 row">
                   <label for="inputPassword" className="col-sm-3 col-form-label">Teléfono</label>
                   <div className="col-sm-9">
-                    <input type="text" className="form-control" id="inputPassword" name="phone" value={formData.phone}/>
+                    <Input name="phone" value={formData.phone} onChange={e => setFormData(e.target.value)}/>
                   </div>
                 </div>
                 <div className="text-center">

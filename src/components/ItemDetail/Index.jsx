@@ -44,7 +44,7 @@ export default function ItemDetail({product}) {
     <div className="row mt-5">
       <div className="col-6 offset-3 col-md-4 offset-md-0 d-flex align-items-start">
         <div>
-          <img className="img-fluid" src={`/thumbnail/${pictureUrl}1x1.jpg`} alt={title}/>
+          <img className="img-fluid" src={`/thumbnail/${pictureUrl}1x1-min.jpg`} alt={title}/>
         </div>
       </div>
       <div className="col-12 col-md-8">

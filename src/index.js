@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CartContextProvider from './context/CartContext';
+import ProductContextProvider from './context/ProductContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartContextProvider>
-      <App />
-    </CartContextProvider>
+    <ProductContextProvider>
+      <CartContextProvider>
+        <App />
+      </CartContextProvider>
+    </ProductContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

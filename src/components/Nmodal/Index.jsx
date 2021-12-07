@@ -30,7 +30,7 @@ const Nmodal = ({handleCloseModal, postOrder}) => {
             </div>
           </div>
           <div className="border border-primary mt-3 p-2">
-            <input type="checkbox"  className="me-3"/>
+            <i class="bi bi-check2-square me-2"></i>
             Recordarme
           </div>
           <div>

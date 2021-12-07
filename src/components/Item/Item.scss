@@ -1,0 +1,25 @@
+.card-title-height {
+  height: 48px;
+}
+
+.card-product-title {
+  font-size: 1.1rem;
+}
+
+.card-description-height {
+  // border: 1px solid;
+  margin-bottom: 1rem;
+  p {
+    font-size: .95rem;
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.card-shadow {
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+  }
+}
+

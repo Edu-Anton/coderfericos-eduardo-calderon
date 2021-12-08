@@ -8,7 +8,6 @@ export default function ItemDetailContainer() {
 
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState({})
-  // const {product, setProduct} = useProductContext(); 
   const {productId} = useParams();
   const history = useHistory();
 
@@ -17,11 +16,6 @@ export default function ItemDetailContainer() {
     const dbQuery = db.collection('products').doc(productId).get()
     dbQuery
     .then(res => setProduct({id:res.id, ...res.data()}))
-    // .then(() => {
-    //   console.log('product',product)
-    //   if (Object.keys(product).length === 0) {history.push('/page-not-found')}
-    // }
-    // )
     .catch(err => console.log(err))
     .finally(() => setLoading(false))
   }, [productId,setProduct, history])

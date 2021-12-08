@@ -9,10 +9,7 @@ export default function Breadcrumb({children}) {
           <li className="breadcrumb-item">
             <Link to="/">Inicio</Link>
           </li>
-
           {children}
-
-          
         </ol>
       </nav>
     </div>

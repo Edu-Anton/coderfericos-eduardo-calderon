@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-
 import { useCartContext } from '../../context/CartContext';
 import './ItemDetail.css';
-
 import Breadcrumb from '../Breadcrumb/Index';
 import ItemCount from '../ItemCount/Index';
 
@@ -11,18 +9,18 @@ export default function ItemDetail({product}) {
 
   const [addToCart, setAddToCart] = useState(false);
   const [counter, setCounter] = useState(1);
-
   const {addItem} = useCartContext();
   const {
     category_id, 
     category_name,
-    id, 
+    id,
+    brand,
+    stock, 
     longDescription, 
     pictureUrl, 
     price, 
     title 
   } = product;
-  const stock = 5;
 
   const handleQuantity = () => {
     setAddToCart(true);
@@ -54,7 +52,7 @@ export default function ItemDetail({product}) {
               <h2 className="fs-3 text-secondary fw-light">{title}</h2>
               <i className="bi bi-share me-3"></i>
             </div>
-            <span className="fw-light text-secondary d-inline-block my-1 fv-small-caps"> Código: {id}</span>
+            <span className="fw-bold text-main d-inline-block my-1 fv-small-caps"> Marca: {brand}</span>
             <h6><span className="badge bg-red p-3 py-2 mt-2">20% Dsto</span></h6>
             <p className="fs-4 text-danger">
               $ {price} 
@@ -73,12 +71,14 @@ export default function ItemDetail({product}) {
               <i className="fs-5 bi bi-truck text-info me-2"></i> Envío a domicilio
             </p>
             <p>
+              <span className="text-main fw-bold">Disponible: </span>
+              <span>{stock} unidades</span>
+              {/* <i className="bi bi-star me-1 text-warning"></i>
               <i className="bi bi-star me-1 text-warning"></i>
               <i className="bi bi-star me-1 text-warning"></i>
               <i className="bi bi-star me-1 text-warning"></i>
               <i className="bi bi-star me-1 text-warning"></i>
-              <i className="bi bi-star me-1 text-warning"></i>
-              <span className="text-secondary ms-2 fv-small-caps">Califica el producto</span>
+              <span className="text-secondary ms-2 fv-small-caps">Califica el producto</span> */}
             </p>
             <hr />
             {

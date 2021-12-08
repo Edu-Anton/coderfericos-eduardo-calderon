@@ -5,9 +5,7 @@
 }
 
 .numeric-stepper__container {
-  /* border: .5px solid grey; */
   display: flex;
-  /* align-items: center; */
 }
 
 .numeric-stepper__btn {

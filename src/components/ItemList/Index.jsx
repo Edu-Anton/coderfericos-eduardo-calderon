@@ -11,7 +11,6 @@ export default function ItemList({products, loading, grid}) {
         loading 
           ? <Loader/>
           : products.map(product => <Item key={product.id} product={product} grid={grid}/>)
-          // : products.map(product => <CartItem key={product.id} product={product}/>)
       }
     </div>
     

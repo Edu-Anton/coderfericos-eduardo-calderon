@@ -38,11 +38,6 @@ const CartContextProvider = ({children}) => {
     setCartList(cartList.filter(item => item.id !== itemId))
     setQuantityInCart(quantityInCart - quantity);
   }
-  // const removeItem = (index, quantity) => {
-  //   const newCartList = [...cartList];
-  //   newCartList.splice(index, 1);
-  //   setCartList(newCartList);
-  // }
 
   const removeItems = () =>{
     setCartList([]);
@@ -70,7 +65,6 @@ const CartContextProvider = ({children}) => {
       removeItem,
       quantityInCart,
       getTotalAccount,
-      // getTotalUnits,
       removeItems,
       addUnit,
       subtractUnit

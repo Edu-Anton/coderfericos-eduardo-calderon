@@ -24,7 +24,7 @@ export default function CartItem({product, index}) {
       <div className="card-body">
         <div className="row">
           <div className="col-2">
-            <img src={`/thumbnail/${product.pictureUrl}1x1.jpg`} alt="" className="img-fluid"/>
+            <img src={`/thumbnail/${product.pictureUrl}1x1_sm.jpg`} alt="" className="img-fluid"/>
           </div>
           <div className="col-4">
             <div className="h-100 d-flex flex-column justify-content-between">

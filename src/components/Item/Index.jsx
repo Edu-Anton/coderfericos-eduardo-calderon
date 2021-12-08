@@ -64,13 +64,7 @@ export default function Item({product, grid}) {
   
   return (
     <>
-    {
-      grid
-      ? <VerticalItem product={product}/>
-      : <HorizontalItem product={product}/>
-    }
-    {/* // <VerticalItem product={product}/> */}
-    {/* // <HorizontalItem product={product}/> */}
+    { grid ? <VerticalItem product={product}/> : <HorizontalItem product={product}/> }
     </>
   )
 }

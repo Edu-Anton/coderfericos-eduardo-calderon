@@ -1,12 +1,24 @@
-.vmodal_overlay {
+.vmodal__overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(#000, .5);
+  background-color: rgba(0,0,0,.5);
   z-index: 1055;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.vmodal__card {
+  width: 320px;
+}
+
+.vmodal__logo {
+  width: 100px;
+}
+
+.vmodal__input {
+  background-color: #efefef;
 }

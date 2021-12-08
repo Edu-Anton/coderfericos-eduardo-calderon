@@ -1,8 +1,8 @@
-import React from 'react'
-import './Input.css'
-// import PropTypes from 'prop-types'
+import React from 'react';
+import './Input.css';
 
 const Input = ({type, variant, width, ...attr}) => {
+  
   return (
     <input 
       type={type}

@@ -5,9 +5,7 @@ import { useCartContext } from '../../context/CartContext';
 const CheckoutSumary = () => {
   
   const {getTotalAccount} = useCartContext()
-  
   const location = useLocation();
-  console.log(location)
 
   return (
     <div className="card">

@@ -14,9 +14,9 @@ const Checkout = () => {
     name:'Eduardo Calderón', 
     email: 'ed@gmail.com', 
     phone:'967678555'
-  })
+  });
   const [openModal, setOpenModal] = useState(false);
-  const {cartList, getTotalAccount, removeItems} = useCartContext()
+  const {cartList, getTotalAccount, removeItems} = useCartContext();
   const history = useHistory();
 
   const postOrder = () => {
@@ -27,9 +27,10 @@ const Checkout = () => {
     order.items = cartList.map(cartItem => {
       const id = cartItem.id;
       const title = cartItem.title;
+      const brand = cartItem.brand;
       const price = cartItem.price;
       const quantity = cartItem.quantity;
-      return {id, title, price, quantity}
+      return {id, title, brand, price, quantity}
     })
 
     const db = getFirestore();
@@ -53,9 +54,8 @@ const Checkout = () => {
           stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).quantity
         })
       })
-      batch.commit().then(res => {
-        console.log('resultado batch:', res)
-      })
+      batch.commit()
+      .then(res => console.log('resultado batch:', res))
     })
 
   }

@@ -49,8 +49,13 @@ export default function ItemDetail({product}) {
         <div className="car">
           <div className="card-body px-3 pt-0">
             <div className="d-flex justify-content-between align-items-center">
-              <h2 className="fs-3 text-secondary fw-light">{title}</h2>
-              <i className="bi bi-share me-3"></i>
+              <h2 className="fs- text-secondary fw-normal">
+                {title} 
+              </h2>
+              <div>
+                <span classname="text-muted">(cod: {product.id.substring(0,6)})</span>
+                <i className="bi bi-share mx-3"></i>
+              </div>
             </div>
             <span className="fw-bold text-main d-inline-block my-1 fv-small-caps"> Marca: {brand}</span>
             <h6><span className="badge bg-red p-3 py-2 mt-2">20% Dsto</span></h6>

@@ -88,7 +88,6 @@ export default function ItemListContainer() {
 
   const handlerRemoveFilteredBrand = (brand, index) => {
     setFilteredProducts(filteredProducts.filter(product => product.brand !== brand));
-    console.log(index);
     const newSelectedBrands = [...selectedBrands];
     newSelectedBrands.splice(index,1);
     setSelectedBrands([...newSelectedBrands])
@@ -128,7 +127,7 @@ export default function ItemListContainer() {
                 selectedBrands.map((brand, index) => (
                   <span className="badge bg-grey text-dark me-2 mb-2" key={index}>
                     <span className="text-secondary me-2">{brand}</span>
-                    <i class="bi bi-x-square" onClick={()=>handlerRemoveFilteredBrand(brand, index)}></i>
+                    <i className="bi bi-x-square" onClick={()=>handlerRemoveFilteredBrand(brand, index)}></i>
                   </span>
                 ))
               }

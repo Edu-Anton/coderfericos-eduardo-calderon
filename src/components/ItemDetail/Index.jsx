@@ -53,7 +53,7 @@ export default function ItemDetail({product}) {
                 {title} 
               </h2>
               <div>
-                <span classname="text-muted">(cod: {product.id.substring(0,6)})</span>
+                <span classname="text-muted">(cod: {id.substring(0,6)})</span>
                 <i className="bi bi-share mx-3"></i>
               </div>
             </div>

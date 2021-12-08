@@ -10,7 +10,6 @@ export default function Navbar() {
           <div className="row">
             <div className="col-3">
               <Link to="/" className="text-light text-decoration-none d-flex align-items-center">
-                {/* <i class="bi bi-mouse2"></i> */}
                 <i className="bi bi-keyboard fs-1 me-2 text-secondary"></i>
                 <span className="fs-4">Coderféricos</span>
               </Link>
@@ -22,13 +21,13 @@ export default function Navbar() {
                 <ul className="dropdown-menu mt-2" aria-labelledby="dropdownMenu2">
                   <li>
                     <NavLink to="/categories/1" className="nav-link" activeClassName="selected">
-                      <i class="bi bi-tv me-2"></i>
+                      <i className="bi bi-tv me-2"></i>
                       Periféricos
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/categories/2" className="nav-link" activeClassName="selected">
-                      <i class="bi bi-sd-card me-2"></i> 
+                      <i className="bi bi-sd-card me-2"></i> 
                       Almacenamiento
                     </NavLink>
                   </li>

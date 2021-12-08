@@ -55,7 +55,7 @@ const Checkout = () => {
         })
       })
       batch.commit()
-      .then(res => console.log('resultado batch:', res))
+      // .then(res => console.log('resultado batch:', res))
     })
 
   }
@@ -88,19 +88,19 @@ const Checkout = () => {
             <div className="card-body">
               <form>
                 <div className="mb-3 row">
-                  <label for="inputPassword" className="col-sm-3 col-form-label">Nombre</label>
+                  <label htmlFor="inputPassword" className="col-sm-3 col-form-label">Nombre</label>
                   <div className="col-sm-9">
                     <Input name="name" value={formData.name} onChange={e => setFormData(e.target.value)}/>
                   </div>
                 </div>
                 <div className="mb-3 row">
-                  <label for="inputPassword" className="col-sm-3 col-form-label">Email</label>
+                  <label htmlFor="inputPassword" className="col-sm-3 col-form-label">Email</label>
                   <div className="col-sm-9">
                     <Input name="email" value={formData.email} onChange={e => setFormData(e.target.value)}/>
                   </div>
                 </div>
                 <div className="mb-3 row">
-                  <label for="inputPassword" className="col-sm-3 col-form-label">Teléfono</label>
+                  <label htmlFor="inputPassword" className="col-sm-3 col-form-label">Teléfono</label>
                   <div className="col-sm-9">
                     <Input name="phone" value={formData.phone} onChange={e => setFormData(e.target.value)}/>
                   </div>

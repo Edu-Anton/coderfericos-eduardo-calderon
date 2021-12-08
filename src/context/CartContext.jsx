@@ -23,13 +23,11 @@ const CartContextProvider = ({children}) => {
         ...filteredCartList,
         {...product, quantity: newQuantity}
       ]);
-      console.log('ya existe el producto');
     } else {
       setCartList([
         ...cartList,
         {...product, quantity}
       ]);
-      console.log(`Se han añadido ${quantity} productos ${product.title} al carrito`);
     }
     setQuantityInCart(quantityInCart + quantity);
   }

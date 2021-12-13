@@ -25,7 +25,7 @@ const OrderReceived = () => {
       loading 
         ? <Loader/>
         : (
-            <div className="col-8">
+            <div className="col-8 offset-2">
               <h2 className="fs-2 fw-lght mb-5 text-main">¡Gracias! Tu orden ha sido recibida</h2>
               <ul className="list-group">   
                 <li className="list-group-item bg-grey">

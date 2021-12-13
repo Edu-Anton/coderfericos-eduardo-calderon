@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router';
 import { useProductContext } from '../../context/ProductContext';
-import { getFirestore } from '../../services/getFirestore';
+import { getFirestore} from '../../services/getFirestore';
 import ItemList from "../ItemList/Index";
 
 export default function ItemListContainer() {
@@ -107,7 +107,7 @@ export default function ItemListContainer() {
           {
             brands.map((brand, index )=> (
               <li className="list-group-item" key={index}>
-                <div className="text-secondary fv-small-caps" onClick={() => handlerAddFilteredBrand(brand)}>{brand}</div>
+                <div className="text-secondary fv-small-caps cursor-pointer" onClick={() => handlerAddFilteredBrand(brand)}>{brand}</div>
               </li>
             ))
           }
@@ -127,7 +127,7 @@ export default function ItemListContainer() {
                 selectedBrands.map((brand, index) => (
                   <span className="badge bg-grey text-dark me-2 mb-2" key={index}>
                     <span className="text-secondary me-2">{brand}</span>
-                    <i className="bi bi-x-square" onClick={()=>handlerRemoveFilteredBrand(brand, index)}></i>
+                    <i className="bi bi-x-square cursor-pointer" onClick={()=>handlerRemoveFilteredBrand(brand, index)}></i>
                   </span>
                 ))
               }
@@ -141,8 +141,8 @@ export default function ItemListContainer() {
             <div>
 
             </div>
-            <i className={`bi bi-grid me-2 px-1 ${grid && 'bg-main text-light'}`} onClick={() => handleGrid(true)}></i>
-            <i className={`bi bi-view-stacked me-2 px-1 ${!grid && 'bg-main text-light'}`} onClick={() => handleGrid(false)}></i>
+            <i className={`bi bi-grid me-2 px-1 cursor-pointer ${grid && 'bg-main text-light'}`} onClick={() => handleGrid(true)}></i>
+            <i className={`bi bi-view-stacked me-2 px-1 cursor-pointer ${!grid && 'bg-main text-light'}`} onClick={() => handleGrid(false)}></i>
           </div>
           <ItemList products={getListProducts()} loading={loading} grid={grid}/>
         </div>

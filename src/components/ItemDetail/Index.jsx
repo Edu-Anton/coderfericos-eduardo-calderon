@@ -4,6 +4,7 @@ import { useCartContext } from '../../context/CartContext';
 import './ItemDetail.css';
 import Breadcrumb from '../Breadcrumb/Index';
 import ItemCount from '../ItemCount/Index';
+import Button from '../Atoms/Button/Index';
 
 export default function ItemDetail({product}) {
 
@@ -49,7 +50,7 @@ export default function ItemDetail({product}) {
         <div className="car">
           <div className="card-body px-3 pt-0">
             <div className="d-flex justify-content-between align-items-center">
-              <h2 className="fs- text-secondary fw-normal">
+              <h2 className="text-secondary fw-normal">
                 {title} 
               </h2>
               <div>
@@ -65,7 +66,7 @@ export default function ItemDetail({product}) {
             </p>
             <hr />
             <div>{longDescription}</div>
-            <hr />
+            <hr />    
             <p className="font-monospace text-secondary">
               <i className="fs-5 bi bi-shield-check text-info me-2"></i> Un año de garantía
             </p>
@@ -78,23 +79,18 @@ export default function ItemDetail({product}) {
             <p>
               <span className="text-main fw-bold">Disponible: </span>
               <span>{stock} unidades</span>
-              {/* <i className="bi bi-star me-1 text-warning"></i>
-              <i className="bi bi-star me-1 text-warning"></i>
-              <i className="bi bi-star me-1 text-warning"></i>
-              <i className="bi bi-star me-1 text-warning"></i>
-              <i className="bi bi-star me-1 text-warning"></i>
-              <span className="text-secondary ms-2 fv-small-caps">Califica el producto</span> */}
             </p>
             <hr />
             {
               addToCart
               ? (
-                  <Link to="/cart" className="btn go_to_cart py-3 px-4"> 
-                    <i className="bi bi-cart3 me-2"></i>
-                    Ir al carrito
+                  <Link to="/cart"> 
+                    <Button>
+                      <i className="bi bi-cart3 me-2"></i>
+                      Ir al carrito
+                    </Button>
                   </Link>
                 )
-              // : <ItemCount stock={5} initial={1} onAdd={handleClick}/>
               : (
                   <div className="d-flex align-items-center mt-3">
                     <ItemCount 
@@ -103,12 +99,7 @@ export default function ItemDetail({product}) {
                       handleAdd={handleAdd} 
                       handleSubstract={handleSubstract}
                     />
-                    <button 
-                      className="btn counter__on-add-btn ms-3" 
-                      onClick={handleQuantity}
-                    >
-                      Añadir al carrito
-                    </button>
+                    <Button variant="ms-3" onClick={handleQuantity}>Añadir al carrito</Button>
                   </div>
                 ) 
             }       

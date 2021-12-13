@@ -16,7 +16,7 @@ export default function Navbar() {
             </div>
             <div className="col-6 d-flex align-items-center">
               <div className="dropdown">
-                <i className="bi bi-list border p-2 border-radius-round" data-bs-toggle="dropdown"></i>
+                <i className="bi bi-list border p-2 border-radius-round cursor-pointer" data-bs-toggle="dropdown"></i>
                 <span className="ms-2">Categorías</span>
                 <ul className="dropdown-menu mt-2" aria-labelledby="dropdownMenu2">
                   <li>

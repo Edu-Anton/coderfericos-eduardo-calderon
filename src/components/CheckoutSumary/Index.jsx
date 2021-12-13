@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
+import Button from '../Atoms/Button/Index';
 
 const CheckoutSumary = () => {
   
@@ -31,7 +32,13 @@ const CheckoutSumary = () => {
         {/* <button className="btn bg-red text-light my-4 w-100 py-3" onClick={()=>postOrder()}>Terminar mi compra</button> */}
         {
           location.pathname === '/cart'
-          ? <Link className="btn bg-red text-light my-4 py-3 d-block" to='/checkout'>Confirmar mi compra</Link>
+          ? (
+              <Link to='/checkout'>
+                <Button variant={'w-100 mb-3'}>
+                  Confirmar mi compra
+                </Button>
+              </Link>
+            )
           : (
             <>
               <Link to="/cart">Ver detalle de mi compra</Link>

@@ -7,6 +7,7 @@ import 'firebase/firestore';
 import CheckoutSumary from '../CheckoutSumary/Index';
 import Nmodal from '../Nmodal/Index'
 import Input from '../Atoms/Input/Index';
+import Button from '../Atoms/Button/Index';
 
 const Checkout = () => {
 
@@ -106,9 +107,12 @@ const Checkout = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button className="btn bg-red text-light my-4 py-3 px-5" onClick={(e) => handleOpenModal(e)}>
-                    Continuar con el pago <i className="bi bi-arrow-right"></i> 
-                  </button>
+                  <Button onClick={(e) => handleOpenModal(e)}>
+                    Continuar con el pago <i className="bi bi-arrow-right"></i>
+                  </Button>
+                  {/* <button className="btn bg-red text-light my-4 py-3 px-5" onClick={(e) => handleOpenModal(e)}>
+                     
+                  </button> */}
                 </div>
               </form>
             </div>

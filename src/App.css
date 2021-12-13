@@ -1,3 +1,8 @@
+:root {
+  --green-main: #8fca00;
+  --red-action: #ff324d;
+}
+
 body {
   color: #666
 }
@@ -25,7 +30,7 @@ body {
   background-color: #8fca00;
 }
 .bg-red {
-  background-color: #ff324d;
+  background-color: var(--red-action);
 }
 
 .bg-grey {

@@ -1,3 +1,40 @@
 .text-color-red {
   color: red;
 }
+
+.cf-btn {
+  background-color: var(--red-action);
+  color: #fff;
+  padding-top: .9rem; 
+  padding-bottom: .9rem;
+  padding-left: 2rem; 
+  padding-right: 2rem; 
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+}
+
+.cf-btn:hover {
+  color: #fff;
+  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+}
+
+.cf-btn:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  background-color: #777;
+  opacity: .1;
+  left: 50%;
+  bottom: 50%;
+  transition:.3s;
+  z-index: -1;
+}
+
+.cf-btn:hover:before {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+}

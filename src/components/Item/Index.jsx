@@ -1,15 +1,22 @@
 import {Link} from 'react-router-dom'
+// import { getFirestore } from '../../services/getFirestore';
 import './Item.css';
 
 
 const VerticalItem = ({product}) => {
 
+  // var storage = getFirestore().firebase.storage();
+  // var storageRef = storage.ref();
+  // const urldeimg = storageRef('monitor1x1.jpg')
+  // console.log(urldeimg)
+
   return (
     <div className="col-6 col-lg-4">
       <Link to={`/products/${product.id}`} className="text-decoration-none text-secondary">
-        <div className="card card-shadow mt-4">
+        <div className="card card-shadow mt-4 ">
           <div className="ratio ratio-4x3">
-            <img src={`/thumbnail/${product.pictureUrl}.jpg`} className="card-img-top rounded-3 border border-sucess" alt="Imagen de Producto"/>
+            <img src={`/thumbnail/${product.pictureUrl}.jpg`} className="card-img-top rounded-3 imagen" alt="Imagen de Producto"/>
+            {/* <img src={product.pictureUrl} className="card-img-top rounded-3 border border-sucess" alt="Imagen de Producto"/> */}
           </div>
           <div className="card-body">
             <div className="card-title-height">

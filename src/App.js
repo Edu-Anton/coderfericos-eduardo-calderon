@@ -1,6 +1,6 @@
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+import './App.scss';
 import ItemDetailContainer from './components/ItemDetailContainer/Index';
 import ItemListContainer from './components/ItemListContainer/Index';
 import Navbar from './components/Navbar/Index';

@@ -5,7 +5,7 @@ import CartWidget from '../CartWidget/Index';
 
 export default function Navbar() {
   return (
-    <div className="container-fluid bg-main py-1">
+    <div className="container-fluid bg-primary py-1">
       <nav className="container text-light">
           <div className="row">
             <div className="col-3">

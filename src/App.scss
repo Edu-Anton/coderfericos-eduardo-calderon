@@ -1,3 +1,19 @@
+$primary: #8fca00;
+$secondary: #ff324d;
+
+
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Create your own map
+$custom-colors: (
+  "grey": #efefef
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
 :root {
   --green-main: #8fca00;
   --red-action: #ff324d;
@@ -31,8 +47,4 @@ body {
 }
 .bg-red {
   background-color: var(--red-action);
-}
-
-.bg-grey {
-  background-color: #efefef;
 }

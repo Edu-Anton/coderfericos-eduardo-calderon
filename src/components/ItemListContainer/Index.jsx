@@ -141,7 +141,7 @@ export default function ItemListContainer() {
             <div>
 
             </div>
-            <i className={`bi bi-grid me-2 px-1 cursor-pointer ${grid && 'bg-main text-light'}`} onClick={() => handleGrid(true)}></i>
+            <i className={`bi bi-grid me-2 px-1 cursor-pointer ${grid && 'bg-primary text-light'}`} onClick={() => handleGrid(true)}></i>
             <i className={`bi bi-view-stacked me-2 px-1 cursor-pointer ${!grid && 'bg-main text-light'}`} onClick={() => handleGrid(false)}></i>
           </div>
           <ItemList products={getListProducts()} loading={loading} grid={grid}/>

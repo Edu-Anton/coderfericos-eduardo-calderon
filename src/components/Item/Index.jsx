@@ -22,13 +22,13 @@ const VerticalItem = ({product}) => {
             <div className="card-title-height">
               <p className="text-dark card-product-title">{product.title}</p>
             </div>
-            <p className="text-main fv-small-caps">{product.brand}</p>
+            <p className="text-primary fv-small-caps">{product.brand}</p>
             <div className="card-description-height">
               <p>{product.description}</p>
             </div>
             <div className="d-flex justify-content-between">
               <span className="fw-bold">$ {product.price}</span>
-              <span className="badge rounded-pill bg-main">Id: {product.id.substring(0,2)}</span>
+              <span className="badge rounded-pill bg-primary">Id: {product.id.substring(0,2)}</span>
             </div>
           </div>
         </div>
@@ -51,12 +51,12 @@ const HorizontalItem = ({product}) => {
             <div className="card-body">
               <div className="d-flex justify-content-between">
                 <h5 className="card-title">{product.title}</h5>
-                <span className="text-main fv-small-caps fw-bold">{product.brand}</span>
+                <span className="text-primary fv-small-caps fw-bold">{product.brand}</span>
               </div>
               <p className="card-text">T{product.description}</p>
               <div className="d-flex justify-content-between">
               <span className="fw-bold">$ {product.price}</span>
-              <span className="badge rounded-pill bg-main">Id: {product.id.substring(0,2)}</span>
+              <span className="badge rounded-pill bg-primary">Id: {product.id.substring(0,2)}</span>
             </div>
             </div>
           </div>

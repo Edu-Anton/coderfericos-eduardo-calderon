@@ -4,8 +4,9 @@ import { useProductContext } from '../../context/ProductContext';
 import { getFirestore} from '../../services/getFirestore';
 import ItemList from "../ItemList/Index";
 
-export default function ItemListContainer() {
+import {connect} from 'react-redux';
 
+const ItemListContainer = function ({productsRx}) {
   const [loading, setLoading] = useState(true);
   const [title, setTitle] = useState('Listado de Productos');
   const [grid, setGrid] = useState(true);
@@ -31,8 +32,9 @@ export default function ItemListContainer() {
       const dbQuery = db.get()
       dbQuery
       .then(res => {
-        const arrayData = res.docs.map(item => ({id:item.id, ...item.data()}))
-        setProducts(arrayData);
+        // const arrayData = res.docs.map(item => ({id:item.id, ...item.data()}))
+        // setProducts(arrayData);
+        setProducts(productsRx);
         setTitle('Todos los productos');
         setSelectedBrands([]);
         setFilteredProducts([]);
@@ -150,3 +152,9 @@ export default function ItemListContainer() {
     </>
   )
 }
+
+const mapStateToProps = state => ({
+  productsRx: state.products
+})
+
+export default connect(mapStateToProps, {})(ItemListContainer);
